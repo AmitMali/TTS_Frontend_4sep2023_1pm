@@ -72,6 +72,38 @@
         <input type="hidden" name="formversion" value="version 2.0" />
       </div>
       <div>
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="male" value="m" checked />
+        <label for="female">Female</label>
+        <input type="radio" name="gender" id="female" value="f" />
+        <label for="other">other</label>
+        <input type="radio" name="gender" id="other" value="o" />
+      </div>
+      <div>
+        <label for="">Hobbies</label>
+        <br />
+        <label for="singing">Singing</label>
+        <input type="checkbox" name="hobbies[]" id="singing" />
+        <label for="sports">sports</label>
+        <input type="checkbox" name="hobbies[]" id="sports" />
+        <label for="coading">coading</label>
+        <input type="checkbox" name="hobbies[]" id="coading" />
+      </div>
+      <div>
+        <select name="cities" id="">
+          <option value="">Nashik</option>
+          <option value="">Pune</option>
+          <option value="" selected>Mumbai</option>
+          <option value="">Delhi</option>
+        </select>
+      </div>
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+      <input type="range" name="" id="" min="0" max="100" step="10" />
+      <input type="color" name="" id="" />
+      <input type="date" name="" id="" />
+      <input type="datetime" name="" id="" />
+      <input type="search" name="" id="" />
+      <div>
         <input type="submit" value="submit" />
       </div>
     </form>
