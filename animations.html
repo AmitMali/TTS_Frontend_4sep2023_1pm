@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .box,
+      .box1 {
+        width: 100px;
+        height: 100px;
+        background-color: hotpink;
+        animation-name: foo;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: cubic-bezier(0.16, 1.32, 0.83, -0.24);
+      }
+      .box1 {
+        animation-delay: 2s;
+      }
+      .box:hover {
+        animation-play-state: paused;
+      }
+
+      @keyframes foo {
+        0% {
+          background-color: red;
+          border: 0px;
+        }
+        50% {
+          transform: scale(2, 2);
+        }
+        100% {
+          background-color: green;
+          border-radius: 50%;
+          transform: translateX(500px);
+        }
+      }
+    </style>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <h1 class="animate__animated animate__bounceInLeft">Animate.css</h1>
+  </body>
+</html>
