@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>media query</title>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-3"></div>
+      <div class="col-3"></div>
+      <div class="col-3"></div>
+    </div>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .row {
+        background-color: yellowgreen;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+      .col-3 {
+        width: calc(100%);
+        padding: 15px;
+        background-color: burlywood;
+        border: 3px solid red;
+      }
+
+      @media screen and (min-width: 900px) {
+        .row {
+          background-color: aqua;
+          flex-direction: row;
+        }
+        .col-3 {
+          width: calc(100% / 2);
+        }
+      }
+      @media screen and (min-width: 1200px) {
+        .row {
+          background-color: blueviolet;
+          flex-direction: row;
+        }
+        .col-3 {
+          width: calc(100% / 4);
+        }
+      }
+    </style>
+  </body>
+</html>
