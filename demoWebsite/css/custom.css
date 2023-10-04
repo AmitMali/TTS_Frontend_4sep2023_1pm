@@ -1,0 +1,22 @@
+.header-logo {
+  height: 50px;
+}
+.header {
+  background-image: url(../assests/images/header_bg.jpeg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+.bg-orange {
+  background-color: #fc801a;
+}
+.border-orange {
+  border: 1ps solid #fc801a;
+}
+.btn-locateme {
+  height: 30px;
+  color: #535665;
+}
+.btn-locateme :hover {
+  background-color: #c7c8cd;
+}
