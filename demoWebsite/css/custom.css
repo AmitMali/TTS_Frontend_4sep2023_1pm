@@ -1,3 +1,4 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 .header-logo {
   height: 50px;
 }
@@ -19,4 +20,11 @@
 }
 .btn-locateme :hover {
   background-color: #c7c8cd;
+}
+
+.popular-cities-list li:nth-child(odd) a {
+  color: lightslategray;
+}
+.popular-cities-list li:nth-child(even) a {
+  color: #535665;
 }
