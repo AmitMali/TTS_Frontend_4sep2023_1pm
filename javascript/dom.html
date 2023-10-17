@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .row {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .colorbox {
+        width: 20px;
+        height: 20px;
+        border: 2px solid gray;
+      }
+      .bg-red {
+        background-color: red;
+      }
+      .bg-purple {
+        background-color: purple;
+      }
+      .bg-yellow {
+        background-color: yellow;
+      }
+      .bg-green {
+        background-color: green;
+      }
+    </style>
+    <!-- <h1 id="mainHeading">What is DOM 1</h1>
+    <h1 class="testClass">What is DOM 2</h1>
+    <h1 class="testClass">What is DOM 3</h1>
+    <h1 class="testClass">What is DOM 4</h1> -->
+
+    <p id="data">please click button to show msg</p>
+    <button onclick="showMessage()">Show Message</button>
+    <div class="row">
+      <div class="colorbox bg-red" onclick="changeColor('red')"></div>
+      <div class="colorbox bg-green" onclick="changeColor('green')"></div>
+      <div class="colorbox bg-purple" onclick="changeColor('purple')"></div>
+      <div class="colorbox bg-green" onclick="changeColor('green')"></div>
+    </div>
+
+    <script>
+      //   const h1 = document.getElementsByTagName("h1");
+
+      //   const mainheading = document.getElementById("mainHeading");
+      //   mainheading.innerHTML = "<u>DOM</u> is Doccument object model";
+      //   mainheading.style.color = "red";
+
+      function showMessage() {
+        document.getElementById("data").innerHTML =
+          "Welcome to DOM Manupulation";
+      }
+      function changeColor(clr) {
+        document.getElementById("data").style.color = clr;
+      }
+    </script>
+  </body>
+</html>
