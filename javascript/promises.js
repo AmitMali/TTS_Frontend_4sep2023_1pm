@@ -1,10 +1,30 @@
-function fakePromise() {
-  let msg;
-  setTimeout(() => {
-    msg = "dulhan ki wadai ka waqt aa chuka hai";
-  }, 100);
-
-  console.log(msg);
+function getUsers() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve([
+        { username: "john", email: "john@test.com" },
+        { username: "jane", email: "jane@test.com" },
+      ]);
+    }, 1000);
+  });
 }
 
-fakePromise();
+function findUser(username) {
+  getUsers().then((users) => {
+    user = users.find((user) => (user.name = username));
+    console.log(user);
+  });
+}
+
+findUser("john");
+
+// const mypromise = new Promise((resolve, reject) => {
+//   // resolve("success");
+//   reject("failed");
+// });
+
+// mypromise
+//   .then((val) => {
+//     console.log(val);
+//   })
+//   .catch((err) => console.log(err));
