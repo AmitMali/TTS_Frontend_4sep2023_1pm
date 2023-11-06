@@ -2,8 +2,9 @@
 import { useEffect, useState } from "react";
 import Usercard from "../components/usercard/usercard";
 import Head from "next/head";
+import Link from "next/link";
 const page = () => {
-  const [users, setUsers] = useState();
+  const [users, setUsers] = useState([]);
 
   async function getUsers() {
     const resp = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -21,10 +22,16 @@ const page = () => {
         <meta property="description" content="Users description" />
       </Head>
       <div className="flex flex-wrap flex-row gap-2 ">
-        <div className=" w-3/12 ">
-          {console.log(users)}
-          <Usercard />
-        </div>
+        {users &&
+          users.map((user) => {
+            return (
+              <Link href={`users/${user.id}`}>
+                <div className=" w-3/12  ">
+                  <Usercard user={user} />;
+                </div>
+              </Link>
+            );
+          })}
       </div>
     </>
   );
