@@ -1,8 +1,23 @@
 "use client";
+
+import { useState } from "react";
+
 const RegisterForm = () => {
+  const [data, setData] = useState({});
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event.target);
+    // const fname = event.target.fname.value;
+    // const lname = event.target.lname.value;
+    // const email = event.target.email.value;
+    // const password = event.target.password.value;
+    // const formData = { fname, lname, email, password };
+    // console.log(formData);
+
+    console.log(data);
+  };
+  const handleOnChange = (event) => {
+    setData({ ...data, [event.target.name]: event.target.value });
+    console.log(data);
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -28,6 +43,7 @@ const RegisterForm = () => {
                     id="fname"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     placeholder="Enter first name"
+                    onChange={handleOnChange}
                   />
                 </div>
               </div>
@@ -47,6 +63,7 @@ const RegisterForm = () => {
                     id="lname"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     placeholder="Enter last name"
+                    onChange={handleOnChange}
                   />
                 </div>
               </div>
@@ -66,6 +83,7 @@ const RegisterForm = () => {
                     id="email"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     placeholder="Enter email"
+                    onChange={handleOnChange}
                   />
                 </div>
               </div>
@@ -85,6 +103,7 @@ const RegisterForm = () => {
                     id="password"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     placeholder="Enter password"
+                    onChange={handleOnChange}
                   />
                 </div>
               </div>

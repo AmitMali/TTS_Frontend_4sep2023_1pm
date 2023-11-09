@@ -4,7 +4,11 @@ import React, { useState } from "react";
 
 export default function Navbar() {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
-
+  const menus = [
+    { title: "Home", href: "/" },
+    { title: "Users", href: "/users" },
+    { title: "Register", href: "/auth/register" },
+  ];
   return (
     <>
       {/*<!-- Component: Basic Navbar --> */}
@@ -84,47 +88,20 @@ export default function Navbar() {
                   : "invisible opacity-0"
               }`}
             >
-              <li role="none" className="flex items-stretch">
-                <Link
-                  role="menuitem"
-                  aria-haspopup="false"
-                  className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
-                  href="/users"
-                >
-                  <span>users</span>
-                </Link>
-              </li>
-              <li role="none" className="flex items-stretch">
-                <a
-                  role="menuitem"
-                  aria-current="page"
-                  aria-haspopup="false"
-                  className="flex items-center gap-2 py-4 text-emerald-500 transition-colors duration-300 hover:text-emerald-600 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
-                  href="javascript:void(0)"
-                >
-                  <span>Features</span>
-                </a>
-              </li>
-              <li role="none" className="flex items-stretch">
-                <a
-                  role="menuitem"
-                  aria-haspopup="false"
-                  className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
-                  href="javascript:void(0)"
-                >
-                  <span>Pricing</span>
-                </a>
-              </li>
-              <li role="none" className="flex items-stretch">
-                <a
-                  role="menuitem"
-                  aria-haspopup="false"
-                  className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
-                  href="javascript:void(0)"
-                >
-                  <span>About</span>
-                </a>
-              </li>
+              {menus.map((menu) => {
+                return (
+                  <li role="none" className="flex items-stretch">
+                    <Link
+                      role="menuitem"
+                      aria-haspopup="false"
+                      className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
+                      href={menu.href}
+                    >
+                      <span>{menu.title}</span>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
         </div>
