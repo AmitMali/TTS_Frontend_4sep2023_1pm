@@ -6,8 +6,9 @@ const hashPassword = (req, res, next) => {
       req.body.password = hash;
       next();
     });
+  } else {
+    next();
   }
-  next();
 };
 
 module.exports = { hashPassword };

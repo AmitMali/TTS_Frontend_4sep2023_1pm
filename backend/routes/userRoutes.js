@@ -7,10 +7,12 @@ const {
   createUser,
   updateUser,
   deleteUser,
+  singleUser,
 } = require("../controllers/usersController");
 
 router
   .get("/", allUsers)
+  .get("/:id", singleUser)
   .use(hashPassword)
   .post("/", createUser)
   .patch("/", updateUser)
