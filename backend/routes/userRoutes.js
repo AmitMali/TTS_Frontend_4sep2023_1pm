@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+
+const { hashPassword } = require("../middlewares/authMiddleware");
 const {
   allUsers,
   createUser,
@@ -9,6 +11,7 @@ const {
 
 router
   .get("/", allUsers)
+  .use(hashPassword)
   .post("/", createUser)
   .patch("/", updateUser)
   .delete("/", deleteUser);
