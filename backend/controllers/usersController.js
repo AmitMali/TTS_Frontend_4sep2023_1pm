@@ -8,27 +8,56 @@ const allUsers = async (req, res) => {
     console.log("unable to fetch users ", e);
   }
 };
-const singleUser = (req, res) => {
-  console.log("env", process.env.SOME_SECRETE_KEY);
+const singleUser = async (req, res) => {
   const userId = req.params.id;
-  console.log(userId);
-  res.send(`showing result for user id ${userId}`);
+  if (userId) {
+    try {
+      const foundUser = await user.findById(userId).exec();
+      res.json({ user: foundUser });
+    } catch (e) {
+      res.send("unable to find error");
+    }
+  } else {
+    res.send(`invalid request`);
+  }
 };
 const createUser = async (req, res) => {
-  console.log("controller");
-  console.log(req.body);
   try {
     const newUser = await user.create(req.body);
     res.json({ message: "user Created", user: newUser });
   } catch (e) {
-    res.send("Error ", e);
+    res.status(404).send("Error ", e);
+    console.log(e);
   }
 };
-const updateUser = (req, res) => {
-  res.send("update user");
+const updateUser = async (req, res) => {
+  const userId = req.params.id;
+  if (userId) {
+    try {
+      const updatedUser = await user.findByIdAndUpdate(
+        { _id: userId },
+        req.body
+      );
+      res.json({ user: updatedUser });
+    } catch (e) {
+      res.send("unable to find error");
+    }
+  } else {
+    res.send(`invalid request`);
+  }
 };
-const deleteUser = (req, res) => {
-  res.send("delete user");
+const deleteUser = async (req, res) => {
+  const userId = req.params.id;
+  if (userId) {
+    try {
+      const updatedUser = await user.findByIdAndDelete(userId);
+      res.json({ message: "user Deleted" });
+    } catch (e) {
+      res.send("unable to find error");
+    }
+  } else {
+    res.send(`invalid request`);
+  }
 };
 
 module.exports = { allUsers, createUser, updateUser, deleteUser, singleUser };

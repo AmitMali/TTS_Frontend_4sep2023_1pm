@@ -15,7 +15,7 @@ router
   .get("/:id", singleUser)
   .use(hashPassword)
   .post("/", createUser)
-  .patch("/", updateUser)
-  .delete("/", deleteUser);
+  .patch("/:id", updateUser)
+  .delete("/:id", deleteUser);
 
 module.exports = router;

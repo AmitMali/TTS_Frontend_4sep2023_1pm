@@ -1,6 +1,7 @@
 const express = require("express");
-const userRouter = require("./routes/userRoutes");
 const cors = require("cors");
+const userRouter = require("./routes/userRoutes");
+const authRouter = require("./routes/authRoutes");
 const bodyParser = require("body-parser");
 const app = express();
 const port = 3300;
@@ -12,6 +13,7 @@ app.get("/", (req, res) => {
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/users/", userRouter);
+app.use("/auth/", authRouter);
 app.listen(port, () => {
   console.log(`server is running at http://localhost:${port}`);
 });
