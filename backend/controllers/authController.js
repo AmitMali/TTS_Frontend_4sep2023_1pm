@@ -16,7 +16,10 @@ const login = async (req, res) => {
           console.log(result, err);
           if (result) {
             var sercreteKey = process.env.SEC_KEY;
-            var token = jwt.sign({ id: foundUser[0]._id }, sercreteKey);
+            var token = jwt.sign(
+              { id: foundUser[0]._id, role: foundUser[0].role },
+              sercreteKey
+            );
 
             res.json({ login: "success", token });
           } else {

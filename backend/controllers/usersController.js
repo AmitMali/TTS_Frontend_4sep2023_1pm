@@ -15,7 +15,21 @@ const singleUser = async (req, res) => {
       const foundUser = await user.findById(userId).exec();
       res.json({ user: foundUser });
     } catch (e) {
-      res.send("unable to find error");
+      res.send("unable to find user");
+    }
+  } else {
+    res.send(`invalid request`);
+  }
+};
+const userProfile = async (req, res) => {
+  const userId = req.id;
+  console.log(userId, req.role);
+  if (userId) {
+    try {
+      const foundUser = await user.findById(userId).exec();
+      res.json({ user: foundUser });
+    } catch (e) {
+      res.send("unable to find user");
     }
   } else {
     res.send(`invalid request`);
@@ -60,4 +74,11 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { allUsers, createUser, updateUser, deleteUser, singleUser };
+module.exports = {
+  allUsers,
+  createUser,
+  updateUser,
+  deleteUser,
+  singleUser,
+  userProfile,
+};

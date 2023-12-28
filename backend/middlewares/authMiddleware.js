@@ -1,3 +1,5 @@
+require("dotenv").config();
+var jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const hashPassword = (req, res, next) => {
   if (req.body.password) {
@@ -11,4 +13,18 @@ const hashPassword = (req, res, next) => {
   }
 };
 
-module.exports = { hashPassword };
+const isAuthorized = (req, res, next) => {
+  if (req.headers.authorization) {
+    const token = req.headers.authorization;
+    const decoded = jwt.verify(token, process.env.SEC_KEY);
+    // console.log(token, decoded);
+    req.id = decoded.id;
+    req.role = decoded.role;
+    next();
+  } else {
+    res.status(401).json({ error: "unauthorized" });
+    return;
+  }
+};
+
+module.exports = { hashPassword, isAuthorized };
